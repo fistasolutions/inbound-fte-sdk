@@ -1,18 +1,28 @@
 import React from 'react';
 import { InboundBlock } from '../types/page';
-import { Hero, Paragraph, FAQ } from './blocks';
+import { Hero, Paragraph, FAQ, Heading, Table, CTA } from './blocks';
 
-const blockMap: Record<string, React.FC<any>> = {
+// Define the component map type for overrides
+export type InboundComponentMap = Partial<typeof defaultBlockMap>;
+
+const defaultBlockMap: Record<string, React.FC<any>> = {
     hero: Hero,
-    text: Paragraph, // Mapping 'text' from backend to Paragraph component
+    text: Paragraph,
+    heading: Heading,
+    table: Table,
     faq: FAQ,
+    cta: CTA
 };
 
 interface BlockRendererProps {
     blocks: InboundBlock[];
+    components?: InboundComponentMap;
 }
 
-export const BlockRenderer: React.FC<BlockRendererProps> = ({ blocks }) => {
+export const BlockRenderer: React.FC<BlockRendererProps> = ({ blocks, components = {} }) => {
+    // Merge default blocks with user overrides
+    const blockMap = { ...defaultBlockMap, ...components };
+
     const sortedBlocks = [...blocks].sort((a, b) => a.order - b.order);
 
     return (

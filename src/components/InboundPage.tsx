@@ -1,18 +1,20 @@
 "use client";
 import React from 'react';
 import { useInboundPage } from '../hooks/useInboundPage';
-import { BlockRenderer } from '../renderer/BlockRenderer';
+import { BlockRenderer, InboundComponentMap } from '../renderer/BlockRenderer';
 
 interface InboundPageProps {
     slug: string;
     loadingComponent?: React.ReactNode;
     errorComponent?: (error: Error) => React.ReactNode;
+    components?: InboundComponentMap;
 }
 
 export const InboundPage: React.FC<InboundPageProps> = ({
     slug,
     loadingComponent = <div className="p-20 text-center opacity-50">Loading world-class content...</div>,
-    errorComponent = (err) => <div className="p-20 text-center text-red-500">Failed to load content: {err.message}</div>
+    errorComponent = (err) => <div className="p-20 text-center text-red-500">Failed to load content: {err.message}</div>,
+    components
 }) => {
     const { page, loading, error } = useInboundPage(slug);
 
@@ -22,7 +24,7 @@ export const InboundPage: React.FC<InboundPageProps> = ({
 
     return (
         <article className="inbound-page">
-            <BlockRenderer blocks={page.blocks} />
+            <BlockRenderer blocks={page.blocks} components={components} />
         </article>
     );
 };
