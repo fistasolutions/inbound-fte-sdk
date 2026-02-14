@@ -138,3 +138,5 @@ export const FAQ: React.FC<any> = ({ items }) => {
         </section>
     );
 };
+export * from './Chart';
+
