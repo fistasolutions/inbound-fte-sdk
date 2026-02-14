@@ -19,6 +19,7 @@ export const InboundList: React.FC<InboundListProps> = ({
     if (error) return <div className="p-10 text-center text-red-500">Error: {error.message}</div>;
 
     return (
+        // <div className="flex flex-col gap-6"></div>
         <div className={className}>
             {pages.map((page) => (
                 renderItem ? renderItem(page) : (
