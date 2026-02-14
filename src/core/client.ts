@@ -43,4 +43,13 @@ export class InboundClient {
         if (!res.ok) throw new Error(`FTE Error: ${res.statusText}`);
         return res.json();
     }
+
+    async track(event: { slug: string; type: 'view' | 'click' | 'scroll_depth' | 'time_on_page'; value?: number }) {
+        // Fire-and-forget (do not await or throw)
+        fetch(`${this.baseUrl}/api/v1/analytics/track`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(event),
+        }).catch(err => console.error('FTE Analytics Error:', err));
+    }
 }
