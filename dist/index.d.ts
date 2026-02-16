@@ -104,6 +104,18 @@ interface InboundListProps {
 }
 declare const InboundList: React.FC<InboundListProps>;
 
+declare const Hero: React.FC<any>;
+
+declare const Paragraph: React.FC<any>;
+
+declare const Heading: React.FC<any>;
+
+declare const Table: React.FC<any>;
+
+declare const CTA: React.FC<any>;
+
+declare const FAQ: React.FC<any>;
+
 interface ChartItem {
     label: string;
     value: number;
@@ -113,15 +125,10 @@ interface ChartItem {
 interface ChartProps {
     title: string;
     data: ChartItem[];
-    type?: 'bar' | 'progress';
+    type?: 'bar' | 'pie' | 'compact-bar';
 }
 declare const Chart: React.FC<ChartProps>;
 
-declare const Hero: React.FC<any>;
-declare const Paragraph: React.FC<any>;
-declare const Heading: React.FC<any>;
-declare const Table: React.FC<any>;
-declare const CTA: React.FC<any>;
-declare const FAQ: React.FC<any>;
+declare const Image: React.FC<any>;
 
-export { BlockRenderer, CTA, Chart, FAQ, Heading, Hero, type InboundBlock, InboundClient, type InboundComponentMap, InboundFTEProvider, InboundList, InboundPage, type InboundPageData, Paragraph, type Project, type ROIStats, Table, type TrendingTopic, useInboundFTE, useInboundList, useInboundPage };
+export { BlockRenderer, CTA, Chart, FAQ, Heading, Hero, Image, type InboundBlock, InboundClient, type InboundComponentMap, InboundFTEProvider, InboundList, InboundPage, type InboundPageData, Paragraph, type Project, type ROIStats, Table, type TrendingTopic, useInboundFTE, useInboundList, useInboundPage };

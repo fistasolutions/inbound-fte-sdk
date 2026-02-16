@@ -1,6 +1,6 @@
 import React from 'react';
 import { InboundBlock } from '../types/page';
-import { Hero, Paragraph, FAQ, Heading, Table, CTA, Chart } from './blocks';
+import { Hero, Paragraph, FAQ, Heading, Table, CTA, Chart, Image } from './blocks';
 
 // Define the component map type for overrides
 export type InboundComponentMap = Partial<typeof defaultBlockMap>;
@@ -12,7 +12,8 @@ const defaultBlockMap: Record<string, React.FC<any>> = {
     table: Table,
     faq: FAQ,
     cta: CTA,
-    chart: Chart
+    chart: Chart,
+    image: Image
 };
 
 interface BlockRendererProps {
