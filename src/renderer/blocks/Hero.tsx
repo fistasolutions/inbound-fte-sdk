@@ -12,13 +12,6 @@ export const Hero: React.FC<any> = ({ title, subtitle, image_url }) => (
         <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
 
         <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold tracking-[0.2em] uppercase text-blue-400 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                </span>
-                Intelligence Generated
-            </div>
 
             <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-8 bg-gradient-to-br from-white via-white to-white/40 bg-clip-text text-transparent leading-[0.9] drop-shadow-2xl">
                 {title}
