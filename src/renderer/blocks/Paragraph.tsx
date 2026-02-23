@@ -16,7 +16,12 @@ export const Paragraph: React.FC<any> = ({ html, text, variant = 'compact' }) =>
                         style={{
                             textRendering: 'optimizeLegibility',
                         }}
-                        dangerouslySetInnerHTML={{ __html: html }}
+import DOMPurify from 'dompurify';
+
+<div
+  className="text-[var(--inbound-text,var(--foreground,#cbd5e1))]..."
+  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(html) }}
+/>
                     />
                 ) : (
                     <p className="text-[var(--inbound-text,var(--foreground,#cbd5e1))] leading-[1.8] tracking-tight font-light whitespace-pre-line selection:bg-blue-500/30 text-lg sm:text-xl">
